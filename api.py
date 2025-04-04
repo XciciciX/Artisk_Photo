@@ -13,6 +13,7 @@ from io import BytesIO
 import json
 import re
 from logging.config import dictConfig
+import awsgi
 
 dictConfig({
     'version': 1,
