@@ -13,6 +13,7 @@ import re
 import signal
 import sys
 import shutil
+import base64
 from utils import encode_image_to_base64, decode_base64_image
 
 # Configure logging
@@ -395,16 +396,29 @@ class ImageProcessingWorker:
                 'status': 'processing',
                 'started_at': str(time.time())
             })
-            
-            logger.info(f"Job {session_id} status updated to processing")
+            logger.info(f"test2")
+            # logger.info(f"test2 Job {session_id} status updated to processing")
             # Get job parameters
             input_path = job_data.get('input_path')
             base_name = job_data.get('base_name')
             max_iterations = job_data.get('max_iterations', 3)
             initial_threshold = job_data.get('initial_threshold', 150)
-            image_base64 = job_data.get('image_base64')
+            logger.info(f"test1")
+            data = job_data.get('image_base64')
+            # logger.info(f"length: {len(data)}")
+            # # Strip prefix
+            if "," in data:
+                data = data.split(",")[1]
 
-            image = decode_base64_image(image_base64)
+            # Fix padding
+            missing_padding = len(data) % 4
+            logger.info(f"Missing padding: {missing_padding}, {len(data)}")
+            if missing_padding != 0:
+                logger.info(f"Missing padding detected: {missing_padding} bytes")
+                data += "=" * (4 - missing_padding)
+
+            image_base64 = base64.b64decode(data)
+            image = decode_base64_image(data)
             
             # Process image
             result = self.iterative_image_processing(

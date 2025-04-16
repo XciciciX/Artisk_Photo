@@ -6,6 +6,19 @@ from flask import Flask, request, jsonify
 import redis
 import json
 from flask_cors import CORS
+import base64
+
+def safe_base64_decode(data):
+        # Strip prefix
+        if "," in data:
+            data = data.split(",")[1]
+
+        # Fix padding
+        missing_padding = len(data) % 4
+        if missing_padding != 0:
+            data += "=" * (4 - missing_padding)
+
+        return base64.b64decode(data)
 
 def create_app(redis_host='redis', redis_port=6379, redis_db=0):
     # Configure Flask application
@@ -24,7 +37,8 @@ def create_app(redis_host='redis', redis_port=6379, redis_db=0):
     # Configure Redis
     redis_client = redis.Redis(host=redis_host, port=redis_port, db=redis_db)
 
-
+    
+    
     @app.route('/process', methods=['POST'])
     def process_image():
         try:
@@ -38,6 +52,7 @@ def create_app(redis_host='redis', redis_port=6379, redis_db=0):
                 
             # Get base64-encoded image from request
             base64_image = data.get('image')
+            
             if not base64_image:
                 return jsonify({'error': 'Empty image data'}), 400
                 
@@ -187,6 +202,7 @@ if __name__ == '__main__':
     redis_db = int(os.environ.get('REDIS_DB', 0))
     
     app = create_app(redis_host, redis_port, redis_db)
-    CORS(app, origins=[os.environ.get("CORS_ORIGIN", "http://localhost:3000")])
+    # CORS(app, origins=[os.environ.get("CORS_ORIGIN", "http://localhost:3000")])
+    CORS(app, resources={r"/*": {"origins": "*"}})
     
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))

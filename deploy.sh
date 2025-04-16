@@ -2,7 +2,7 @@
 set -e  # Exit immediately if a command exits with a non-zero status
 
 # Configuration
-PROJECT_ID=$(gcloud config get-value project)
+PROJECT_ID="artisk-photo"
 CLUSTER_NAME="my-api-cluster"
 REGION="us-central1-a"
 MACHINE_TYPE="e2-standard-2"
