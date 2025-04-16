@@ -1,0 +1,523 @@
+Name:                      api-service-564b98d5fc-ncl8c
+Namespace:                 default
+Priority:                  0
+Service Account:           default
+Node:                      gke-my-api-cluster-default-pool-b9baab6d-5938/10.128.0.5
+Start Time:                Mon, 14 Apr 2025 17:52:04 -0400
+Labels:                    app=api-service
+                           pod-template-hash=564b98d5fc
+Annotations:               kubectl.kubernetes.io/restartedAt: 2025-04-14T17:48:49-04:00
+Status:                    Terminating (lasts <invalid>)
+Termination Grace Period:  30s
+IP:                        10.64.2.8
+IPs:
+  IP:           10.64.2.8
+Controlled By:  ReplicaSet/api-service-564b98d5fc
+Containers:
+  api:
+    Container ID:   containerd://47db7f79adde4e137aad2705f8532e996337ceb00d9b97e696e5b0c4f4e9782e
+    Image:          gcr.io/artisk-photo/api-service:latest
+    Image ID:       gcr.io/artisk-photo/api-service@sha256:74be962b2a7a834609a12f0c81d005874b8f03a2b9abe05d9da5b4db81e7d61f
+    Port:           8000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 14 Apr 2025 17:52:13 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      REDIS_HOST:  redis
+      REDIS_PORT:  6379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-c87b9 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-c87b9:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  2m42s  default-scheduler  Successfully assigned default/api-service-564b98d5fc-ncl8c to gke-my-api-cluster-default-pool-b9baab6d-5938
+  Normal  Pulling    2m42s  kubelet            Pulling image "gcr.io/artisk-photo/api-service:latest"
+  Normal  Pulled     2m33s  kubelet            Successfully pulled image "gcr.io/artisk-photo/api-service:latest" in 8.868s (8.868s including waiting). Image size: 166008670 bytes.
+  Normal  Created    2m33s  kubelet            Created container: api
+  Normal  Started    2m33s  kubelet            Started container api
+  Normal  Killing    24s    kubelet            Stopping container api
+
+
+Name:                      api-service-564b98d5fc-ptn8v
+Namespace:                 default
+Priority:                  0
+Service Account:           default
+Node:                      gke-my-api-cluster-default-pool-b9baab6d-n050/10.128.0.6
+Start Time:                Mon, 14 Apr 2025 17:48:50 -0400
+Labels:                    app=api-service
+                           pod-template-hash=564b98d5fc
+Annotations:               kubectl.kubernetes.io/restartedAt: 2025-04-14T17:48:49-04:00
+Status:                    Terminating (lasts <invalid>)
+Termination Grace Period:  30s
+IP:                        10.64.3.7
+IPs:
+  IP:           10.64.3.7
+Controlled By:  ReplicaSet/api-service-564b98d5fc
+Containers:
+  api:
+    Container ID:   containerd://0aa9331a397384c85b3ecb04f49c480a6ce11c978c8ee6c9db307fcdd8eb4482
+    Image:          gcr.io/artisk-photo/api-service:latest
+    Image ID:       gcr.io/artisk-photo/api-service@sha256:74be962b2a7a834609a12f0c81d005874b8f03a2b9abe05d9da5b4db81e7d61f
+    Port:           8000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 14 Apr 2025 17:52:02 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      REDIS_HOST:  redis
+      REDIS_PORT:  6379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-v5pmv (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-v5pmv:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                    From               Message
+  ----     ------     ----                   ----               -------
+  Normal   Scheduled  5m55s                  default-scheduler  Successfully assigned default/api-service-564b98d5fc-ptn8v to gke-my-api-cluster-default-pool-b9baab6d-n050
+  Normal   Pulling    4m26s (x4 over 5m55s)  kubelet            Pulling image "gcr.io/artisk-photo/api-service:latest"
+  Warning  Failed     4m25s (x4 over 5m54s)  kubelet            Failed to pull image "gcr.io/artisk-photo/api-service:latest": rpc error: code = NotFound desc = failed to pull and unpack image "gcr.io/artisk-photo/api-service:latest": no match for platform in manifest: not found
+  Warning  Failed     4m25s (x4 over 5m54s)  kubelet            Error: ErrImagePull
+  Warning  Failed     4m11s (x6 over 5m54s)  kubelet            Error: ImagePullBackOff
+  Normal   BackOff    3m58s (x7 over 5m54s)  kubelet            Back-off pulling image "gcr.io/artisk-photo/api-service:latest"
+  Normal   Killing    22s                    kubelet            Stopping container api
+
+
+Name:             api-service-5686d87d8c-ds6r6
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             gke-my-api-cluster-default-pool-b9baab6d-n050/10.128.0.6
+Start Time:       Mon, 14 Apr 2025 17:54:22 -0400
+Labels:           app=api-service
+                  pod-template-hash=5686d87d8c
+Annotations:      kubectl.kubernetes.io/restartedAt: 2025-04-14T17:54:19-04:00
+Status:           Running
+IP:               10.64.3.9
+IPs:
+  IP:           10.64.3.9
+Controlled By:  ReplicaSet/api-service-5686d87d8c
+Containers:
+  api:
+    Container ID:   containerd://7f433d85cb2b44f7e4bd59dd5165b05dae4969852613cc3bb054b24d56d22f54
+    Image:          gcr.io/artisk-photo/api-service:latest
+    Image ID:       gcr.io/artisk-photo/api-service@sha256:74be962b2a7a834609a12f0c81d005874b8f03a2b9abe05d9da5b4db81e7d61f
+    Port:           8000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 14 Apr 2025 17:54:23 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      REDIS_HOST:  redis
+      REDIS_PORT:  6379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-mwkrk (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-mwkrk:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  24s   default-scheduler  Successfully assigned default/api-service-5686d87d8c-ds6r6 to gke-my-api-cluster-default-pool-b9baab6d-n050
+  Normal  Pulling    24s   kubelet            Pulling image "gcr.io/artisk-photo/api-service:latest"
+  Normal  Pulled     23s   kubelet            Successfully pulled image "gcr.io/artisk-photo/api-service:latest" in 691ms (691ms including waiting). Image size: 166008670 bytes.
+  Normal  Created    23s   kubelet            Created container: api
+  Normal  Started    23s   kubelet            Started container api
+
+
+Name:             api-service-5686d87d8c-w8nh2
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             gke-my-api-cluster-default-pool-b9baab6d-5938/10.128.0.5
+Start Time:       Mon, 14 Apr 2025 17:54:19 -0400
+Labels:           app=api-service
+                  pod-template-hash=5686d87d8c
+Annotations:      kubectl.kubernetes.io/restartedAt: 2025-04-14T17:54:19-04:00
+Status:           Running
+IP:               10.64.2.9
+IPs:
+  IP:           10.64.2.9
+Controlled By:  ReplicaSet/api-service-5686d87d8c
+Containers:
+  api:
+    Container ID:   containerd://7ff2848217490489604ea1f77fd7e20a743909d13c8229b04c605872f9cd6cc1
+    Image:          gcr.io/artisk-photo/api-service:latest
+    Image ID:       gcr.io/artisk-photo/api-service@sha256:74be962b2a7a834609a12f0c81d005874b8f03a2b9abe05d9da5b4db81e7d61f
+    Port:           8000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 14 Apr 2025 17:54:20 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      REDIS_HOST:  redis
+      REDIS_PORT:  6379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-mmqw4 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-mmqw4:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  27s   default-scheduler  Successfully assigned default/api-service-5686d87d8c-w8nh2 to gke-my-api-cluster-default-pool-b9baab6d-5938
+  Normal  Pulling    27s   kubelet            Pulling image "gcr.io/artisk-photo/api-service:latest"
+  Normal  Pulled     27s   kubelet            Successfully pulled image "gcr.io/artisk-photo/api-service:latest" in 362ms (362ms including waiting). Image size: 166008670 bytes.
+  Normal  Created    27s   kubelet            Created container: api
+  Normal  Started    27s   kubelet            Started container api
+
+
+Name:             redis-f8db9547-wr48v
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             gke-my-api-cluster-default-pool-b9baab6d-5938/10.128.0.5
+Start Time:       Mon, 14 Apr 2025 17:34:37 -0400
+Labels:           app=redis
+                  pod-template-hash=f8db9547
+Annotations:      <none>
+Status:           Running
+IP:               10.64.2.4
+IPs:
+  IP:           10.64.2.4
+Controlled By:  ReplicaSet/redis-f8db9547
+Containers:
+  redis:
+    Container ID:   containerd://4ea53c6690986bafa942ad2b078bb9a6568b7048ca57c7c2a84e335b061cee01
+    Image:          redis:latest
+    Image ID:       docker.io/library/redis@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9
+    Port:           6379/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 14 Apr 2025 17:34:41 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-9km5x (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-9km5x:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  20m   default-scheduler  Successfully assigned default/redis-f8db9547-wr48v to gke-my-api-cluster-default-pool-b9baab6d-5938
+  Normal  Pulling    20m   kubelet            Pulling image "redis:latest"
+  Normal  Pulled     20m   kubelet            Successfully pulled image "redis:latest" in 3s (3s including waiting). Image size: 45021794 bytes.
+  Normal  Created    20m   kubelet            Created container: redis
+  Normal  Started    20m   kubelet            Started container redis
+
+
+Name:             worker-service-7df5698bd8-52nnj
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             gke-my-api-cluster-default-pool-b9baab6d-77qt/10.128.0.3
+Start Time:       Mon, 14 Apr 2025 17:54:27 -0400
+Labels:           app=worker-service
+                  pod-template-hash=7df5698bd8
+Annotations:      kubectl.kubernetes.io/restartedAt: 2025-04-14T17:54:19-04:00
+Status:           Running
+IP:               10.64.0.6
+IPs:
+  IP:           10.64.0.6
+Controlled By:  ReplicaSet/worker-service-7df5698bd8
+Containers:
+  worker:
+    Container ID:   containerd://12dd1b44855f859a30e913dd24cf71fc398ad28932d66eb928094ebd7adef012
+    Image:          gcr.io/artisk-photo/worker-service:latest
+    Image ID:       gcr.io/artisk-photo/worker-service@sha256:13f39066b37399202b0d0d77874914b35a2660f7c6155733339ee54e35c731ef
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 14 Apr 2025 17:54:41 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      REDIS_HOST:  redis
+      REDIS_PORT:  6379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-n96mw (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-n96mw:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  19s   default-scheduler  Successfully assigned default/worker-service-7df5698bd8-52nnj to gke-my-api-cluster-default-pool-b9baab6d-77qt
+  Normal  Pulling    19s   kubelet            Pulling image "gcr.io/artisk-photo/worker-service:latest"
+  Normal  Pulled     6s    kubelet            Successfully pulled image "gcr.io/artisk-photo/worker-service:latest" in 13.586s (13.586s including waiting). Image size: 243114054 bytes.
+  Normal  Created    6s    kubelet            Created container: worker
+  Normal  Started    6s    kubelet            Started container worker
+
+
+Name:             worker-service-7df5698bd8-cktpb
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             gke-my-api-cluster-default-pool-b9baab6d-n050/10.128.0.6
+Start Time:       Mon, 14 Apr 2025 17:54:20 -0400
+Labels:           app=worker-service
+                  pod-template-hash=7df5698bd8
+Annotations:      kubectl.kubernetes.io/restartedAt: 2025-04-14T17:54:19-04:00
+Status:           Running
+IP:               10.64.3.8
+IPs:
+  IP:           10.64.3.8
+Controlled By:  ReplicaSet/worker-service-7df5698bd8
+Containers:
+  worker:
+    Container ID:   containerd://a9a21e600f6c7209eea7b6256935e38f499ae420a00e7772f1e46057a74cae49
+    Image:          gcr.io/artisk-photo/worker-service:latest
+    Image ID:       gcr.io/artisk-photo/worker-service@sha256:13f39066b37399202b0d0d77874914b35a2660f7c6155733339ee54e35c731ef
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 14 Apr 2025 17:54:26 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      REDIS_HOST:  redis
+      REDIS_PORT:  6379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-p6ln4 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-p6ln4:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  27s   default-scheduler  Successfully assigned default/worker-service-7df5698bd8-cktpb to gke-my-api-cluster-default-pool-b9baab6d-n050
+  Normal  Pulling    27s   kubelet            Pulling image "gcr.io/artisk-photo/worker-service:latest"
+  Normal  Pulled     21s   kubelet            Successfully pulled image "gcr.io/artisk-photo/worker-service:latest" in 5.951s (5.951s including waiting). Image size: 243114054 bytes.
+  Normal  Created    21s   kubelet            Created container: worker
+  Normal  Started    21s   kubelet            Started container worker
+
+
+Name:             worker-service-7df5698bd8-hf55h
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             gke-my-api-cluster-default-pool-b9baab6d-5938/10.128.0.5
+Start Time:       Mon, 14 Apr 2025 17:54:20 -0400
+Labels:           app=worker-service
+                  pod-template-hash=7df5698bd8
+Annotations:      kubectl.kubernetes.io/restartedAt: 2025-04-14T17:54:19-04:00
+Status:           Running
+IP:               10.64.2.10
+IPs:
+  IP:           10.64.2.10
+Controlled By:  ReplicaSet/worker-service-7df5698bd8
+Containers:
+  worker:
+    Container ID:   containerd://0672d6600a429f4423dd31e010f951a918e31413e183a49f1440469dd10d0ff8
+    Image:          gcr.io/artisk-photo/worker-service:latest
+    Image ID:       gcr.io/artisk-photo/worker-service@sha256:13f39066b37399202b0d0d77874914b35a2660f7c6155733339ee54e35c731ef
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 14 Apr 2025 17:54:26 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      REDIS_HOST:  redis
+      REDIS_PORT:  6379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-xbl5s (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-xbl5s:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  27s   default-scheduler  Successfully assigned default/worker-service-7df5698bd8-hf55h to gke-my-api-cluster-default-pool-b9baab6d-5938
+  Normal  Pulling    26s   kubelet            Pulling image "gcr.io/artisk-photo/worker-service:latest"
+  Normal  Pulled     21s   kubelet            Successfully pulled image "gcr.io/artisk-photo/worker-service:latest" in 5.661s (5.661s including waiting). Image size: 243114054 bytes.
+  Normal  Created    21s   kubelet            Created container: worker
+  Normal  Started    21s   kubelet            Started container worker
+
+
+Name:             worker-service-7df5698bd8-hjw7g
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             gke-my-api-cluster-default-pool-b9baab6d-mxhm/10.128.0.4
+Start Time:       Mon, 14 Apr 2025 17:54:27 -0400
+Labels:           app=worker-service
+                  pod-template-hash=7df5698bd8
+Annotations:      kubectl.kubernetes.io/restartedAt: 2025-04-14T17:54:19-04:00
+Status:           Running
+IP:               10.64.1.14
+IPs:
+  IP:           10.64.1.14
+Controlled By:  ReplicaSet/worker-service-7df5698bd8
+Containers:
+  worker:
+    Container ID:   containerd://ee5dedd6cedde93795f4ff5ae337c354b0fa76378763a24bd6554cb50b244c0e
+    Image:          gcr.io/artisk-photo/worker-service:latest
+    Image ID:       gcr.io/artisk-photo/worker-service@sha256:13f39066b37399202b0d0d77874914b35a2660f7c6155733339ee54e35c731ef
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 14 Apr 2025 17:54:44 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      REDIS_HOST:  redis
+      REDIS_PORT:  6379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kbj9g (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-kbj9g:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  19s   default-scheduler  Successfully assigned default/worker-service-7df5698bd8-hjw7g to gke-my-api-cluster-default-pool-b9baab6d-mxhm
+  Normal  Pulling    19s   kubelet            Pulling image "gcr.io/artisk-photo/worker-service:latest"
+  Normal  Pulled     3s    kubelet            Successfully pulled image "gcr.io/artisk-photo/worker-service:latest" in 15.879s (15.879s including waiting). Image size: 243114054 bytes.
+  Normal  Created    3s    kubelet            Created container: worker
+  Normal  Started    3s    kubelet            Started container worker

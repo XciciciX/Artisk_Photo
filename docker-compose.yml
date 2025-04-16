@@ -1,0 +1,60 @@
+# version: '3.8'
+
+services:
+  redis:
+    image: redis:7.0-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8080:8080"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+      - CORS_ORIGIN=http://localhost:3000
+      - GEMINI_API_KEY=AIzaSyAUj5lmD9jZRSKMIvfSRHAMKsS7fDQrABw
+    volumes:
+      - ./app.py:/app/app.py
+      - ./utils.py:/app/utils.py
+      - shared_data:/tmp
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+      - GEMINI_API_KEY=AIzaSyAUj5lmD9jZRSKMIvfSRHAMKsS7fDQrABw
+    volumes:
+      - ./worker.py:/app/worker.py
+      - ./utils.py:/app/utils.py
+      - shared_data:/tmp
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      replicas: 5
+
+volumes:
+  redis_data:
+  shared_data:

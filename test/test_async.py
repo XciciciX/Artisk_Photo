@@ -8,11 +8,11 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Import the function
-from utils import decode_base64_image
+from utils import decode_base64_image, encode_image_to_base64
 
 
 class ImageProcessingTest:
-    def __init__(self, base_url="http://localhost:8080"):
+    def __init__(self, base_url="http://34.122.242.153/"):
         self.base_url = base_url
         self.test_image_path = "./test06.jpg"
         self.output_dir = "./test_outputs"
@@ -25,17 +25,26 @@ class ImageProcessingTest:
         Process an image and track its status
         """
         # Prepare request data
-        files = {"image": open(self.test_image_path, "rb")}
-        data = {
-            "max_iterations": "5",
-            "initial_threshold": str(initial_threshold),
-            "invert": str(invert).lower()
+        base64_image = encode_image_to_base64(self.test_image_path)
+        filename = os.path.basename(self.test_image_path)
+        # Prepare request data
+        json_data = {
+            "image": base64_image,
+            "filename": filename,
+            "max_iterations": 5,
+            "initial_threshold": initial_threshold,
+            "invert": invert
         }
+
 
         # Submit job
         try:
-            response = requests.post(f"{self.base_url}/process", files=files, data=data)
-            
+            response = requests.post(
+                f"{self.base_url}/process", 
+                json=json_data,
+                headers={"Content-Type": "application/json"}
+            )
+                
             if response.status_code != 200:
                 print(f"Job submission failed: {response.status_code}")
                 print(response.text)
