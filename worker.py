@@ -483,7 +483,7 @@ class ImageProcessingWorker:
                 gray = cv2.cvtColor(bgr_channels, cv2.COLOR_BGR2GRAY)
                 
                 # Apply Gaussian blur
-                gray = cv2.GaussianBlur(gray, (29, 29), 0)
+                gray = cv2.GaussianBlur(gray, (9, 9), 0)
                 
                 # Apply threshold
                 _, mask = cv2.threshold(gray, thre_value, 255, cv2.THRESH_BINARY)
@@ -527,7 +527,7 @@ class ImageProcessingWorker:
                 gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
                 
                 # Apply Gaussian blur
-                gray = cv2.GaussianBlur(gray, (29, 29), 0)
+                gray = cv2.GaussianBlur(gray, (9, 9), 0)
                 
                 # Apply threshold
                 _, bw = cv2.threshold(gray, thre_value, 255, cv2.THRESH_BINARY)
@@ -553,7 +553,7 @@ class ImageProcessingWorker:
                 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
                 
                 # Apply Gaussian blur
-                gray = cv2.GaussianBlur(gray, (29, 29), 0)
+                gray = cv2.GaussianBlur(gray, (9, 9), 0)
                 
                 # Apply threshold
                 _, mask = cv2.threshold(gray, thre_value, 255, cv2.THRESH_BINARY)
